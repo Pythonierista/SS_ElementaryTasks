@@ -3,6 +3,8 @@ import argparse
 
 class Chess:
 
+    INSTRUCTION = 'Please enter positive integers to calculate height and width of the desk'
+
     def __init__(self, height, width):
         self.h = height
         self.w = width
@@ -21,8 +23,10 @@ def main():
         args.height, args.width = int(args.height), int(args.width)
         if args.height > 0 < args.width:
             print(Chess(args.height, args.width).create_chess_deck())
+        else:
+            print(Chess.INSTRUCTION)
     except ValueError:
-        print('Please enter positive integers to calculate height and width of the desk')
+        print(Chess.INSTRUCTION)
 
 
 if __name__ == '__main__':
