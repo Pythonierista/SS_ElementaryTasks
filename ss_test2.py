@@ -27,6 +27,12 @@ class TestEnvelope (unittest.TestCase):
         self.assertTrue(env1 < env2)
         self.assertFalse(env1 > env2)
 
+    def test_errors(self):
+        with self.assertRaises(TypeError):
+            env1 = Envelope('221', 5)
+            env2 = Envelope(10, 11)
+            self.assertTrue(env1 < env2)
+
 
 if __name__ == '__main__':
     unittest.main()
