@@ -4,6 +4,11 @@ from ss_t2 import *
 
 class TestEnvelope (unittest.TestCase):
 
+    def test_create_envelope(self):
+        env = Envelope(1.25, 10)
+        self.assertEqual(env.a, 1.25)
+        self.assertEqual(env.b, 10)
+
     def test_not_fitting_ints(self):
         env1 = Envelope(2, 2)
         env2 = Envelope(1, 3)
