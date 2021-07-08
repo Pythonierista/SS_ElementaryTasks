@@ -22,18 +22,17 @@ class Chess:
 
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-height', default=0)
-    parser.add_argument('-width', default=0)
-    args = parser.parse_args()
+    parser = argparse.ArgumentParser(exit_on_error=False)
+    parser.add_argument('-height', type=int)
+    parser.add_argument('-width', type=int)
 
     try:
-        args.height, args.width = int(args.height), int(args.width)
+        args = parser.parse_args()
         if args.height > 0 < args.width:
             print(Chess(args.height, args.width).create_chess_deck())
         else:
             print(Chess.INSTRUCTION)
-    except ValueError:
+    except (ValueError, TypeError, argparse.ArgumentError):
         print(Chess.INSTRUCTION)
 
 

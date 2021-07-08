@@ -6,6 +6,8 @@
 
 class Envelope:
 
+    INSTRUCTION = 'Please write positive integer parameters'
+
     def __init__(self, side_a, side_b):
         self.a = side_a
         self.b = side_b
@@ -25,15 +27,18 @@ def main():
             b = float(input('2 side of the 1 envelope: '))
             c = float(input('1 side of the 2 envelope: '))
             d = float(input('2 side of the 2 envelope: '))
-            env1 = Envelope(a, b)
-            env2 = Envelope(c, d)
-            if env1 > env2 or env1 < env2:
-                print('Yes you can put the envelope in the other one')
+            if a > 0 < b and c > 0 < d:
+                env1 = Envelope(a, b)
+                env2 = Envelope(c, d)
+                if env1 > env2 or env1 < env2:
+                    print('Yes you can put the envelope in the other one')
+                else:
+                    print('No no, cannot do that')
+                n = input('Wanna continue? ')
             else:
-                print('No no, cannot do that')
-            n = input('Wanna continue? ')
+                print(Envelope.INSTRUCTION)
         except ValueError:
-            print('Write integer parameters')
+            print(Envelope.INSTRUCTION)
 
 
 if __name__ == '__main__':
